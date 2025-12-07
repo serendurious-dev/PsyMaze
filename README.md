@@ -1,8 +1,10 @@
-    PsyMaze - Brain Meets Game
+
+  PsyMaze - Brain Meets Game
 
 Psymaze is a maze exploration game, written in C, which is based on console, and mixed algorthims, mood tracking, as well as reflective journalimg
 
-    Features~
+  Features~
+  
 1. Procedural maze generation (levels can be choosed)
 2. Mood-based maze morphing with obstacle behaviors.
 3. Obstacles: traps, puzzles, bonuses, power-ups.
