@@ -13,17 +13,18 @@ Psymaze is a maze exploration game, written in C, which is based on console, and
 8. Step based speedrun medals (example. Gold/ Silver/ Bronze/ Explorer)
 9. Snapshots and session summeries saved to text files.
 
-        How to compile~
+   How to compile~
 
-   gcc initial.c -o psymaze
+       gcc initial.c -o psymaze
 
-        How to play~
- 1. Run ./psymaze on windows
- 2. Choose any level (1-50)
- 3. Move with w/a/s/d.
- 4. j = jump over a wall (condition applied)
- 5. h = philosophical quote/exercise.
- 6. l = view journal
- 7. s = save run snapshots.
+   How to play~
+   
+     1. Run ./psymaze on windows
+     2. Choose any level (1-50)
+     3. Move with w/a/s/d.
+     4. j = jump over a wall (condition applied)
+     5. h = philosophical quote/exercise.
+     6. l = view journal
+     7. s = save run snapshots.
 
 At the end of each run, you'll see stats, achievements, a sppedrun medal, and you can write a short reflection.
