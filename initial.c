@@ -4,6 +4,7 @@
 #include <time.h>
 #include <string.h>
 
+// Load Saved Player level from profile.txt
 int loadPlayerLevel() {
     FILE *f = fopen("profile.txt", "r");
     if (!f) return 1; // default level 1 if no file yet
@@ -128,6 +129,7 @@ void carveMaze(int x, int y, int **maze, bool **visited, int rows, int cols) {
     }
 }
 
+//Generate maze using recursive backtracking (DFS)
 void generateMaze(int **maze, int rows, int cols, int exitX, int exitY) {
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
@@ -139,6 +141,7 @@ void generateMaze(int **maze, int rows, int cols, int exitX, int exitY) {
     free2DBoolArray(visited, rows);
 }
 
+// Log "life lesson" line onto journal.txt
 void logLifeLesson(const char *message) {
     FILE *f = fopen("journal.txt", "a");
     if (f == NULL) {
@@ -149,7 +152,7 @@ void logLifeLesson(const char *message) {
     fclose(f);
 }
 
-
+//Place traps, puzzles, bonuses and power-ups, difficulty level can be chosen with chosenLevel
 void placeObstacles(int **maze, int **obstacles, int rows, int cols, int exitX, int exitY, int chosenLevel) {
     int baseDiv = 18;
     int levelFactor = chosenLevel / 5;
@@ -264,7 +267,7 @@ void processObstacle(Player *player, int obs,
     
 }
 
-
+// Randomly show either a philosophical quote or a small exercise
 void showRandomPhilosophySupport() {
     int r = rand() % 2; // 0 quote, 1 exercise
     if (r == 0) {
@@ -296,7 +299,7 @@ void showRandomPhilosophySupport() {
     }
 }
 
-
+//Maze wall is changed based on player's mood
 void morphMaze(int **maze, int **obstacles, int rows, int cols,
                int morphAmount, bool **preservePath, Player player) {
     for (int n = 0; n < morphAmount; n++) {
@@ -329,7 +332,7 @@ void morphMaze(int **maze, int **obstacles, int rows, int cols,
 }
 
 void initNPCs(NPC npcs[], int npcCount, int rows, int cols, int **maze) {
-    // simple hard coded types, positions picked randomly on paths
+    // positions picked randomly on paths
     for (int i = 0; i < npcCount; i++) {
         npcs[i].type = (i == 0) ? MENTOR : (i == 1) ? SHADOW : SAGE;
         npcs[i].active = true;
@@ -362,10 +365,12 @@ void initNPCs(NPC npcs[], int npcCount, int rows, int cols, int **maze) {
     }
 }
 
+// NPC talks based on mood and stats, later, asks for reflection line
 void speakWithNPC(NPC *npc, Player *player,
                   int steps,
                   int trapCount, int puzzleCount, int philosophyUses);
 
+//Check if player is on an NPC tile and trigger the encounter once
 void checkNPCEncounter(Player *player, NPC npcs[], int npcCount, int steps, int trapCount, int puzzleCount, int philosophyUses) {
     for (int i = 0; i < npcCount; i++) {
         if (!npcs[i].active) continue;
@@ -523,7 +528,7 @@ void waitForEnter() {
 }
 
 
-
+//Summarize session stats to a text file (steps, moods, obstacles, philosphy)
 void saveSessionSummary(const char *filename,
                         int steps,
                         int moodCounts[3],
@@ -831,3 +836,4 @@ askEndOfSessionReflection();
     free2DBoolArray(preservePath, rows);
     return 0;
 }
+
