@@ -53,12 +53,12 @@ const char *philosophyQuotes[NUM_QUOTES] = {
     "The notion that a human being should be constantly happy is a uniquely modern, uniquely destructive idea. — Andrew Weil",
     "You are not too old and it is not too late to dive into your increasing depths where life calmly gives out its own secret. — Rainer Maria Rilke",
     "The menu is not the meal. — Alan Watts",
-    "We see the world not as it is, but as we are. — Anaïs Nin",
+    "We see the world not as it is, but as we are. — Anais Nin",
     "I dream. Sometimes I think that’s the only right thing to do. — Haruki Murakami",
     "It is not true that people stop pursuing dreams because they grow old, they grow old because they stop pursuing dreams. — Gabriel García Márquez",
     "The struggle between ‘for’ and ‘against’ is the mind’s worst disease. — Sent-ts’an",
-    "Life must be understood backward. But it must be lived forward. — Søren Kierkegaard",
-    "What labels me, negates me. — Søren Kierkegaard",
+    "Life must be understood backward. But it must be lived forward. — Soren Kierkegaard",
+    "What labels me, negates me. — Soren Kierkegaard",
     "You have your way. I have my way. As for the right way, the correct way, and the only way, it does not exist. — Friedrich Nietzsche",
     "To live is to suffer; to survive is to find some meaning in the suffering. — Friedrich Nietzsche"
 };
@@ -254,7 +254,7 @@ void processObstacle(Player *player, int obs,
         printf("In sadness, the maze feels heavier.\n");
         logLifeLesson("Sadness closed some paths: sometimes our mood narrows our vision.");
     } else {
-        printf("Neutral mind, neutral maze: nothing changes… yet.\n");
+        printf("Neutral mind, neutral maze: nothing changes, yet.\n");
         logLifeLesson("Neutrality kept the maze steady: not every moment needs change.");
     }
 } else if (obs == BONUS) {
@@ -560,35 +560,35 @@ int showAchievementsAndComputeXP(int steps,
     printf("\n===== ACHIEVEMENTS =====\n");
 
     if (steps < 50) {
-        printf("- Efficient Explorer (finished in under 50 steps)\n");
+        printf("Efficient Explorer (finished in under 50 steps)\n");
         xp += 30;
     } else if (steps > 200) {
-        printf("- Persistent Wanderer (kept going despite a long path)\n");
+        printf("Persistent Wanderer (kept going despite a long path)\n");
         xp += 20;
     }
 
     if (moodCounts[HAPPY] > moodCounts[SAD]) {
-        printf("- Bringer of Light (more happy moods than sad)\n");
+        printf("Bringer of Light (more happy moods than sad)\n");
         xp += 20;
     }
 
     if (philosophyUses >= 3) {
-        printf("- Reflective Seeker (used philosophy support 3+ times)\n");
+        printf("Reflective Seeker (used philosophy support 3+ times)\n");
         xp += 25;
     }
 
     if (puzzleCount >= 2) {
-        printf("- Riddle Breaker (solved multiple puzzles)\n");
+        printf("Riddle Breaker (solved multiple puzzles)\n");
         xp += 15;
     }
 
     if (trapCount == 0) {
-        printf("- Untouched by Traps (avoided all traps)\n");
+        printf("Untouched by Traps (avoided all traps)\n");
         xp += 30;
     }
 
     if (trapCount > 0 && moodCounts[SAD] > 0) {
-        printf("- Resilient Soul (kept going despite traps and sadness)\n");
+        printf("Resilient Soul (kept going despite traps and sadness)\n");
         xp += 15;
     }
 
@@ -836,4 +836,5 @@ askEndOfSessionReflection();
     free2DBoolArray(preservePath, rows);
     return 0;
 }
+
 
